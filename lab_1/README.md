@@ -18,22 +18,24 @@
 
 Операция дилатации может быть полезна для заполнения пробелов внутри объектов или увеличения видимого размера объектов на изображении. Она применяется, например, при подготовке изображений для распознавания и выделения объектов.
 
-<div align="center">
-  <figure style="display:inline-block; margin: 10px;">
-    <img src="src/origin.png" alt="Image 1" width="250">
-    <figcaption>Оригинальное изображение</figcaption>
-  </figure>
-  <figure style="display:inline-block; margin: 10px;">
-    <img src="src/dilation.png" alt="Image 2" width="250">
-    <figcaption>Результат дилатации</figcaption>
-  </figure>
-</div>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="src/origin.png" alt="Оригинальное изображение" width="250">
+      <p>Оригинальное изображение</p>
+    </td>
+    <td align="center">
+      <img src="src/dilation.png" alt="Результат дилатации" width="250">
+      <p>Результат дилатации</p>
+    </td>
+  </tr>
+</table>
 
 
 #### Алгоритмы и принципы работы
-- **OpenCV реализация**: использует встроенную функцию `cv2.dilate`, которая применяет ядро ко всем пикселям изображения и выполняет операцию дилатации на основе оптимизированных функций библиотеки.
+**OpenCV реализация**: использует встроенную функцию `cv2.dilate`, которая применяет ядро ко всем пикселям изображения и выполняет операцию дилатации на основе оптимизированных функций библиотеки.
   
-- **Нативная реализация**: создается копия изображения с дополнительными пикселями по краям для обработки границ, после чего выполняется проход по каждому пикселю изображения. На каждом шаге применяется ядро 3x3, и пикселю присваивается максимальное значение в соответствующей области.
+**Нативная реализация**: создается копия изображения с дополнительными пикселями по краям для обработки границ, после чего выполняется проход по каждому пикселю изображения. На каждом шаге применяется ядро 3x3, и пикселю присваивается максимальное значение в соответствующей области.
 
 ### Код нативной реализации
 ```python
@@ -49,43 +51,48 @@ def dilate_native(image, kernel):
     return dilated_image
 ```
 
-## Результаты работы и тестирования системы
+## Результаты работы и тестирования
 
 ### Скриншоты и изображения
 Ниже приведены результаты работы алгоритмов.
 
 **Маленькое изображение**
-<div align="center">
-  <figure style="display:inline-block; margin: 10px;">
-    <img src="src/image_1.png" alt="Image 1" width="">
-    <figcaption>Оригинальное изображение</figcaption>
-  </figure>
-  <figure style="display:inline-block; margin: 10px;">
-    <img src="src/dilated_image_cv_1.png" alt="Image 2" width="">
-    <figcaption>Результат OpenCV</figcaption>
-  </figure>
-  <figure style="display:inline-block; margin: 10px;">
-    <img src="src/dilated_image_native_1.png" alt="Image 3" width="">
-    <figcaption>Результат нативной реализации</figcaption>
-  </figure>
-</div>
+
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="src/image_1.png" alt="Оригинальное изображение" width="">
+      <p>Оригинальное изображение</p>
+    </td>
+    <td align="center">
+      <img src="src/dilated_image_cv_1.png" alt="Результат дилатации" width="">
+      <p>OpenCV</p>
+    </td>
+    <td align="center">
+      <img src="src/dilated_image_native_1.png" alt="Результат дилатации" width="">
+      <p>Нативная реализация</p>
+    </td>
+  </tr>
+</table>
 
 **Большое изображение**
 
-<div align="center">
-  <figure style="display:inline-block; margin: 10px;">
-    <img src="src/image.jpg" alt="Image 1" width="">
-    <figcaption>Оригинальное изображение</figcaption>
-  </figure>
-  <figure style="display:inline-block; margin: 10px;">
-    <img src="src/dilated_image_cv.png" alt="Image 2" width="">
-    <figcaption>Результат OpenCV</figcaption>
-  </figure>
-  <figure style="display:inline-block; margin: 10px;">
-    <img src="src/dilated_image_native.png" alt="Image 3" width="">
-    <figcaption>Результат нативной реализации</figcaption>
-  </figure>
-</div>
+<table align="center">
+  <tr>
+    <td align="center">
+      <img src="src/image.jpg" alt="Оригинальное изображение" width="300">
+      <p>Оригинальное изображение</p>
+    </td>
+    <td align="center">
+      <img src="src/dilated_image_cv.png" alt="Результат дилатации" width="300">
+      <p>OpenCV</p>
+    </td>
+    <td align="center">
+      <img src="src/dilated_image_native.png" alt="Результат дилатации" width="300">
+      <p>Нативная реализация</p>
+    </td>
+  </tr>
+</table>
 
 
 ### Временные затраты
@@ -103,7 +110,7 @@ def dilate_native(image, kernel):
 ![Comp](src/results_comp.png)
 
 ## Выводы
-Был реализован алгоритм делатации c ядром 3*3. Также было произведено сравнение с реализацией алгоритма из библиотеки OpenCV. Обе реализации успешно выполняют операцию дилатации, однако нативная реализация на Python значительно уступает по скорости встроенной функции из OpenCV. Это связано с оптимизациями, реализованными в OpenCV, которые снижают временные затраты на обработку изображения.
+Был реализован алгоритм делатации c ядром 3*3. Также было произведено сравнение с реализацией алгоритма из библиотеки OpenCV. Обе реализации успешно выполняют операцию дилатации, однако нативная реализация на Python значительно уступает по скорости функции из библиотеки OpenCV. Это связано с оптимизациями, реализованными в OpenCV, которые снижают временные затраты на обработку изображения.
 
 ## Использованные источники
 [Документация OpenCV](https://docs.opencv.org/3.4/db/df6/tutorial_erosion_dilatation.html) 
