@@ -4,7 +4,10 @@ import numpy as np
 from dilation import dilate_native
 
 # Загрузка изображения
-image = cv2.imread('src/image.jpg', 0)
+image = cv2.imread('src/image.jpg', cv2.IMREAD_GRAYSCALE)
+(_, image) = cv2.threshold(image, 128, 255, cv2.THRESH_BINARY)
+cv2.imwrite('src/image_bin.jpg', image)
+
 if image is None:
     raise FileNotFoundError("Image file not found. Check the file path.")
 
