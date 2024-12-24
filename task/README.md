@@ -37,11 +37,11 @@ def decode(image_path, output_dir):
 <table align="center">
   <tr>
     <td align="center">
-      <img src="img/36.png" alt="Зашифрованное изображение" width="">
+      <img src="img/36.png" alt="Зашифрованное изображение" width="600">
       <p>Зашифрованное изображение</p>
     </td>
     <td align="center">
-      <img src="dec_img/36_dec.png" alt="Результат дешифровки" width="">
+      <img src="dec_img/36_dec.png" alt="Результат дешифровки" width="600">
       <p>Результат дешифровки</p>
     </td>
   </tr>
@@ -104,11 +104,11 @@ def decode(image_path, output_dir):
 <table align="center">
   <tr>
     <td align="center">
-      <img src="img/36.png" alt="Зашифрованное изображение" width="">
+      <img src="img/36.png" alt="Зашифрованное изображение" width="600">
       <p>Зашифрованное изображение</p>
     </td>
     <td align="center">
-      <img src="inv_dec_img/36_dec_inv.png" alt="Результат дешифровки" width="">
+      <img src="inv_dec_img/36_dec_inv.png" alt="Результат дешифровки" width="600">
       <p>Результат дешифровки</p>
     </td>
   </tr>
@@ -117,13 +117,13 @@ def decode(image_path, output_dir):
 ### Итог
 
 Вот все слова с имеющихся картинок:
-```
+```text
 that to end the in nor worms In dirty lived an smell sit dry hobbit-hole there Hobbit Not eat yet was nothing oozy or a filled nasty comfort bare of hole with wet ends down ground on sandy it
 ```
 
 Из всех слов с картинок что-то похожее на часть вступления к книге "Хоббит, или Туда и обратно" Дж. Р. Р. Толкина:
 
-```
+```text
 In a hole in the ground there lived a Hobbit. Not a nasty, dirty, wet hole, filled with the ends of worms and an oozy smell, nor yet a dry, bare, sandy hole with nothing in it to sit down on or to eat: it was a hobbit-hole, and that means comfort.
 ```
 
