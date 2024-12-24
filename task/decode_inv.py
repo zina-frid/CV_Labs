@@ -3,7 +3,6 @@ import os
 import numpy as np
 
 def decode(image_path, output_dir):
-    # Считываем изображение в цветном формате
     image = cv2.imread(image_path, cv2.IMREAD_COLOR)
     
     if image is None:
@@ -37,7 +36,7 @@ def decode(image_path, output_dir):
     # Формирование имени файла для сохранения
     base_name = os.path.basename(image_path)
     name, ext = os.path.splitext(base_name)
-    output_path = os.path.join(output_dir, f"{name}_decoded{ext}")
+    output_path = os.path.join(output_dir, f"{name}_dec_inv{ext}")
 
     # Сохранение изображения
     cv2.imwrite(output_path, img_reconstructed)
